@@ -8,23 +8,71 @@
 
 import Foundation
 
-struct Card
+struct Card: CustomStringConvertible
 {
-    let symbol: Symbol, number: Number, shading: Shading, color: Color
+    var description: String { return "\(shape)-\(number)-\(shading)-\(color)" }
     
-    enum Symbol: Character, CaseIterable {
-        case triangle = "▲", circle = "●", square = "■"
+    let shape: Shape, number: Number, shading: Shading, color: Color
+    
+    enum Shape: CaseIterable, CustomStringConvertible {
+        
+        case diamond
+        case squiggle
+        case oval
+        
+//        static var all = [Symbol.triangle, .circle, .square]
+        
+        var description: String {
+            switch self {
+            case .diamond: return "Diamond"
+            case .squiggle: return "Squiggle"
+            case .oval: return "Oval"
+            }
+        }
     }
     
-    enum Number: Int, CaseIterable {
-        case one = 1, two, three
+    enum Number: Int, CaseIterable, CustomStringConvertible {
+        
+        case one = 1
+        case two
+        case three
+        
+        static var all = [Number.one, .two, .three]
+        
+        var description: String { return String(rawValue) }
     }
     
-    enum Shading: CaseIterable {
-        case solid, striped, open
+    enum Shading: CaseIterable, CustomStringConvertible {
+        
+        case solid
+        case striped
+        case open
+        
+//        static var all = [Shading.solid, .striped, .open]
+        
+        var description: String {
+            switch self {
+            case .solid: return "Solid"
+            case .striped: return "Striped"
+            case .open: return "Open"
+            }
+        }
     }
     
-    enum Color: CaseIterable {
-        case red, green, purple
+    enum Color: CaseIterable, CustomStringConvertible {
+        
+        case red
+        case green
+        case purple
+        
+//        static var all = [Color.red, .green, .purple]
+        
+        var description: String {
+            switch self {
+            case .red: return "Red"
+            case .green: return "Green"
+            case .purple: return "Purple"
+            }
+        }
     }
 }

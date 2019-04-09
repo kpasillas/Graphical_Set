@@ -13,11 +13,11 @@ struct Set
 {
     private(set) var originalDeckOfCards: [Card] = {
         var CardsArray = [Card]()
-        for symbol in Card.Symbol.allCases {
+        for shape in Card.Shape.allCases {
             for number in Card.Number.allCases {
                 for shading in Card.Shading.allCases {
                     for color in Card.Color.allCases {
-                        CardsArray += [Card(symbol: symbol, number: number, shading: shading, color: color)]
+                        CardsArray += [Card(shape: shape, number: number, shading: shading, color: color)]
                     }
                 }
             }
@@ -37,13 +37,13 @@ struct Set
     }
     
     init() {
-        for _ in 1...12 {
-            dealtCards += [dealCard()]
-        }
-        
-        for _ in 0..<57 {
-            _ = originalDeckOfCards.remove(at: originalDeckOfCards.count.arc4random)
-        }
+//        for _ in 1...12 {
+//            dealtCards += [dealCard()]
+//        }
+//
+//        for _ in 0..<57 {
+//            _ = originalDeckOfCards.remove(at: originalDeckOfCards.count.arc4random)
+//        }
     }
     
     mutating func dealCard() -> Card? {
@@ -97,7 +97,7 @@ struct Set
     }
     
     var testEnums: (Card, Card, Card) -> Bool = {
-        return ((($0.symbol == $1.symbol && $0.symbol == $2.symbol) || ($0.symbol != $1.symbol && $0.symbol != $2.symbol && $1.symbol != $2.symbol)) && (($0.number == $1.number && $0.number == $2.number) || ($0.number != $1.number && $0.number != $2.number && $1.number != $2.number)) && (($0.shading == $1.shading && $0.shading == $2.shading) || ($0.shading != $1.shading && $0.shading != $2.shading && $1.shading != $2.shading)) && (($0.color == $1.color && $0.color == $2.color) || ($0.color != $1.color && $0.color != $2.color && $1.color != $2.color)))
+        return ((($0.shape == $1.shape && $0.shape == $2.shape) || ($0.shape != $1.shape && $0.shape != $2.shape && $1.shape != $2.shape)) && (($0.number == $1.number && $0.number == $2.number) || ($0.number != $1.number && $0.number != $2.number && $1.number != $2.number)) && (($0.shading == $1.shading && $0.shading == $2.shading) || ($0.shading != $1.shading && $0.shading != $2.shading && $1.shading != $2.shading)) && (($0.color == $1.color && $0.color == $2.color) || ($0.color != $1.color && $0.color != $2.color && $1.color != $2.color)))
     }
     
 }
