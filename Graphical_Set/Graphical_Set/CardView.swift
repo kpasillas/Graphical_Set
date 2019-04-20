@@ -12,11 +12,13 @@ import UIKit
 class CardView: UIView {
 
     @IBInspectable
-    var shape: String = "Squiggle" { didSet { setNeedsDisplay(); setNeedsLayout() } }
-//    @IBInspectable
-//    var suit: String = "♥️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
-//    @IBInspectable
-//    var isFaceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var shapeSymbol: String = "Diamond" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable
+    var shapeNumber: Int = 1 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable
+    var shapeColor: UIColor = UIColor.green { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable
+    var shapeShading: String = "Striped" { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         setNeedsDisplay()
@@ -29,74 +31,92 @@ class CardView: UIView {
         
     }
     
-    private func drawDiamond(center: CGPoint, path: UIBezierPath) {
-        path.move(to: center.offsetBy(dx: 0.0, dy: -(shapeHeight / 2)))
-        path.addLine(to: center.offsetBy(dx: (diamondWidth / 2), dy: 0.0))
-        path.addLine(to: center.offsetBy(dx: 0.0, dy: (shapeHeight / 2)))
-        path.addLine(to: center.offsetBy(dx: -(diamondWidth / 2), dy: 0.0))
-        path.close()
-    }
-    
-    private func drawOval(center: CGPoint, path: UIBezierPath) {
-        path.move(to: center.offsetBy(dx: 0.0, dy: -(shapeHeight / 2)))
-        path.addLine(to: center.offsetBy(dx: -(ovalWidth / 2), dy: -(shapeHeight / 2)))
-        path.move(to: center.offsetBy(dx: -(ovalWidth / 2), dy: (shapeHeight / 2)))
-        path.addLine(to: center.offsetBy(dx: (ovalWidth / 2), dy: (shapeHeight / 2)))
-        path.move(to: center.offsetBy(dx: (ovalWidth / 2), dy: -(shapeHeight / 2)))
-        path.addLine(to: center.offsetBy(dx: 0.0, dy: -(shapeHeight / 2)))
-        path.move(to: center.offsetBy(dx: -(ovalWidth / 2), dy: (shapeHeight / 2)))
-        path.addArc(withCenter: center.offsetBy(dx: -(ovalWidth / 2), dy: 0.0), radius: (shapeHeight / 2), startAngle: CGFloat.pi / 2, endAngle: (3 * CGFloat.pi) / 2, clockwise: true)
-        path.move(to: center.offsetBy(dx: (ovalWidth / 2), dy: (shapeHeight / 2)))
-        path.addArc(withCenter: center.offsetBy(dx: (ovalWidth / 2), dy: 0.0), radius: (shapeHeight / 2), startAngle: CGFloat.pi / 2, endAngle: (3 * CGFloat.pi) / 2, clockwise: false)
-    }
-    
-    private func drawSquiggle(center: CGPoint, path: UIBezierPath) {
-        path.move(to: center.offsetBy(dx: (squiggleWidth / 2), dy: -(squiggleHeight / 2) - squigglHeightOffset))
-        path.addQuadCurve(to: center.offsetBy(dx: 0.0, dy: -(squiggleHeight / 2)), controlPoint: center.offsetBy(dx: squiggleWidthOffset, dy: -(squiggleHeight / 2) + squigglHeightOffset))
-        path.addQuadCurve(to: center.offsetBy(dx: -(squiggleWidth / 2), dy: -(squiggleHeight / 2)), controlPoint: center.offsetBy(dx: -squiggleWidthOffset, dy: -(squiggleHeight / 2) - squigglHeightOffset))
-        path.move(to: center.offsetBy(dx: (squiggleWidth / 2), dy: (squiggleHeight / 2) - squigglHeightOffset))
-        path.addQuadCurve(to: center.offsetBy(dx: 0.0, dy: (squiggleHeight / 2)), controlPoint: center.offsetBy(dx: squiggleWidthOffset, dy: (squiggleHeight / 2) + squigglHeightOffset))
-        path.addQuadCurve(to: center.offsetBy(dx: -(squiggleWidth / 2), dy: (squiggleHeight / 2)), controlPoint: center.offsetBy(dx: -squiggleWidthOffset, dy: (squiggleHeight / 2) - squigglHeightOffset))
-        path.move(to: center.offsetBy(dx: -(squiggleWidth / 2), dy: -(squiggleHeight / 2)))
-        path.addLine(to: center.offsetBy(dx: -(squiggleWidth / 2), dy: (squiggleHeight / 2)))
-        path.move(to: center.offsetBy(dx: (squiggleWidth / 2), dy: (squiggleHeight / 2) - squigglHeightOffset))
-        path.addLine(to: center.offsetBy(dx: (squiggleWidth / 2), dy: -(squiggleHeight / 2) - squigglHeightOffset))
-    }
-    
-    override func draw(_ rect: CGRect) {
-        
+    private func drawCard() {
         let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         roundedRect.addClip()
         UIColor.white.setFill()
         roundedRect.fill()
         
-        let shapePath = UIBezierPath()
-        if shape == "Diamond" {
-            var shapeCenter = CGPoint(x: bounds.topHalf.midX, y: bounds.topHalf.midY)
-            drawDiamond(center: shapeCenter, path: shapePath)
-            shapeCenter = CGPoint(x: bounds.midX, y: bounds.midY)
-            drawDiamond(center: shapeCenter, path: shapePath)
-            shapeCenter = CGPoint(x: bounds.bottomHalf.midX, y: bounds.bottomHalf.midY)
-            drawDiamond(center: shapeCenter, path: shapePath)
-        } else if shape == "Oval" {
-            var shapeCenter = CGPoint(x: bounds.topHalf.midX, y: bounds.topHalf.midY)
-            drawOval(center: shapeCenter, path: shapePath)
-            shapeCenter = CGPoint(x: bounds.midX, y: bounds.midY)
-            drawOval(center: shapeCenter, path: shapePath)
-            shapeCenter = CGPoint(x: bounds.bottomHalf.midX, y: bounds.bottomHalf.midY)
-            drawOval(center: shapeCenter, path: shapePath)
-        } else if shape == "Squiggle" {
-            var shapeCenter = CGPoint(x: bounds.topHalf.midX, y: bounds.topHalf.midY)
-            drawSquiggle(center: shapeCenter, path: shapePath)
-            shapeCenter = CGPoint(x: bounds.midX, y: bounds.midY)
-            drawSquiggle(center: shapeCenter, path: shapePath)
-            shapeCenter = CGPoint(x: bounds.bottomHalf.midX, y: bounds.bottomHalf.midY)
-            drawSquiggle(center: shapeCenter, path: shapePath)
+        let midPointsArray = [[], [bounds.center], [bounds.topHalf.center, bounds.bottomHalf.center], [bounds.topThird.center, bounds.middleThird.center, bounds.bottomThird.center]]
+        for index in midPointsArray[shapeNumber].indices {
+            if let shapePath = getShapePath(symbol: shapeSymbol, center: midPointsArray[shapeNumber][index]) {
+                shapePath.lineWidth = shapeStrokeWidth
+                shapeColor.setStroke()
+                shapePath.stroke()
+                let context = UIGraphicsGetCurrentContext()
+                context?.addPath(shapePath.cgPath)
+                context?.saveGState()
+                shapePath.addClip()
+                drawShapeShading(shading: shapeShading, color: shapeColor)
+                shapePath.fill()
+                context?.restoreGState()
+            }
         }
+    }
+    
+    private func drawShapeShading(shading: String, color: UIColor) {
+        if shading == "Solid" {
+            color.setFill()
+        } else if shading == "Striped" {
+            drawStripes(color: color)
+        } else if shading == "Open" {
+            UIColor.clear.setFill()
+        }
+    }
+   
+    private func drawStripes(color: UIColor) {
+        let path = UIBezierPath()
+        for xVal in stride(from: -bounds.maxX, to: bounds.maxX, by: stripeSpacing) {
+            path.move(to: CGPoint(x: xVal, y: bounds.minY))
+            path.addLine(to: CGPoint(x: bounds.maxX + xVal, y: bounds.maxY))
+        }
+        path.lineWidth = stripeWidth
+        color.setStroke()
+        path.stroke()
+        UIColor.clear.setFill()
+    }
+    
+    private func drawDiamond(center: CGPoint) -> UIBezierPath {
+        let path = UIBezierPath()
+        path.move(to: center.offsetBy(dx: 0.0, dy: -(shapeHeight / 2)))
+        path.addLine(to: center.offsetBy(dx: (diamondWidth / 2), dy: 0.0))
+        path.addLine(to: center.offsetBy(dx: 0.0, dy: (shapeHeight / 2)))
+        path.addLine(to: center.offsetBy(dx: -(diamondWidth / 2), dy: 0.0))
+        path.close()
+        return path
+    }
+    
+    private func drawOval(center: CGPoint) -> UIBezierPath {
+        let path = UIBezierPath(ovalIn: CGRect(x: center.x - (bounds.width / 2) + (ovalWidthOffset / 2), y: center.y - (ovalHeight / 2), width: bounds.width - ovalWidthOffset, height: ovalHeight))
+        return path
+    }
+    
+    private func drawSquiggle(center: CGPoint) -> UIBezierPath {
+        let path = UIBezierPath()
+        let squiggleCenter = center.offsetBy(dx: 0.0, dy: squiggleCenterOffset)
+        path.move(to: squiggleCenter.offsetBy(dx: (squiggleWidth / 2), dy: -(squiggleHeight / 2) - squigglHeightOffset))
+        path.addCurve(to: squiggleCenter.offsetBy(dx: -(squiggleWidth / 2), dy: -(squiggleHeight / 2)), controlPoint1: squiggleCenter.offsetBy(dx: squiggleWidthOffset, dy: squigglHeightOffset), controlPoint2: squiggleCenter.offsetBy(dx: -squiggleWidthOffset, dy: -(squiggleHeight / 2) - squigglHeightOffset))
+        path.addLine(to: squiggleCenter.offsetBy(dx: -(squiggleWidth / 2), dy: (squiggleHeight / 2)))
+        path.addCurve(to: squiggleCenter.offsetBy(dx: (squiggleWidth / 2), dy: (squiggleHeight / 2) - squigglHeightOffset), controlPoint1: squiggleCenter.offsetBy(dx: -squiggleWidthOffset, dy: -(squiggleHeight / 2) - squigglHeightOffset), controlPoint2: squiggleCenter.offsetBy(dx: squiggleWidthOffset, dy: (squiggleHeight / 2) + squigglHeightOffset))
+        path.close()
+        return path
+    }
+    
+    private func getShapePath(symbol: String, center: CGPoint) -> UIBezierPath? {
+        if symbol == "Diamond" {
+            return drawDiamond(center: center)
+        } else if symbol == "Squiggle" {
+            return drawSquiggle(center: center)
+        } else if symbol == "Oval" {
+            return drawOval(center: center)
+        } else {
+            return nil
+        }
+    }
+    
+    override func draw(_ rect: CGRect) {
         
-        shapePath.lineWidth = 5.0
-        UIColor.green.setStroke()
-        shapePath.stroke()
+        drawCard()
     }
 
 }
@@ -104,17 +124,25 @@ class CardView: UIView {
 extension CardView {
     private struct SizeRatio {
         static let shapeHeightRatio: CGFloat = 0.19
+        static let shapeStrokeWidthRatio: CGFloat = 0.015
         static let diamondWidthRatio: CGFloat = 0.63
-        static let ovalWidthRatio: CGFloat = 0.4
+        static let ovalWidthOffsetRatio: CGFloat = 0.2
+        static let ovalHeightRatio: CGFloat = 0.2
         static let squiggleWidthRatio: CGFloat = 0.63
         static let squiggleHeightRatio: CGFloat = 0.14
-        static let squiggleHeightOffsetRatio: CGFloat = 0.12
+        static let squiggleHeightOffsetRatio: CGFloat = 0.09
         static let squiggleWidthOffsetRatio: CGFloat = 0.20
         static let squiggleEndWidthOffsetRatio: CGFloat = 0.14
+        static let squiggleCenterOffsetRatio: CGFloat = 0.03
         static let cornerRadiusToBoundsHeight: CGFloat = 0.06
+        static let stripeSpacingRatio: CGFloat = 0.1
+        static let stripeWidthRatio: CGFloat = 0.01
     }
     private var cornerRadius: CGFloat {
         return bounds.size.height * SizeRatio.cornerRadiusToBoundsHeight
+    }
+    private var shapeStrokeWidth: CGFloat {
+        return bounds.size.width * SizeRatio.shapeStrokeWidthRatio
     }
     private var shapeHeight: CGFloat {
         return bounds.size.height * SizeRatio.shapeHeightRatio
@@ -122,8 +150,11 @@ extension CardView {
     private var diamondWidth: CGFloat {
         return bounds.size.width * SizeRatio.diamondWidthRatio
     }
-    private var ovalWidth: CGFloat {
-        return bounds.size.width * SizeRatio.ovalWidthRatio
+    private var ovalWidthOffset: CGFloat {
+        return bounds.size.width * SizeRatio.ovalWidthOffsetRatio
+    }
+    private var ovalHeight: CGFloat {
+        return bounds.size.height * SizeRatio.ovalHeightRatio
     }
     private var squiggleWidth: CGFloat {
         return bounds.size.width * SizeRatio.squiggleWidthRatio
@@ -140,6 +171,15 @@ extension CardView {
     private var squiggleEndWidthOffset: CGFloat {
         return bounds.size.width * SizeRatio.squiggleEndWidthOffsetRatio
     }
+    private var squiggleCenterOffset: CGFloat {
+        return bounds.size.height * SizeRatio.squiggleCenterOffsetRatio
+    }
+    private var stripeSpacing: CGFloat {
+        return bounds.size.width * SizeRatio.stripeSpacingRatio
+    }
+    private var stripeWidth: CGFloat {
+        return bounds.size.width * SizeRatio.stripeWidthRatio
+    }
 }
 
 extension CGRect {
@@ -148,6 +188,15 @@ extension CGRect {
     }
     var bottomHalf: CGRect {
         return CGRect(x: minX, y: midY, width: width, height: height/2)
+    }
+    var topThird: CGRect {
+        return CGRect(x: minX, y: minY, width: width, height: height/3)
+    }
+    var middleThird: CGRect {
+        return CGRect(x: minX, y: (topThird.maxY), width: width, height: height/3)
+    }
+    var bottomThird: CGRect {
+        return CGRect(x: minX, y: (middleThird.maxY), width: width, height: height/3)
     }
     var leftHalf: CGRect {
         return CGRect(x: minX, y: minY, width: width/2, height: height)
@@ -165,6 +214,9 @@ extension CGRect {
         let newWidth = width * scale
         let newHeight = height * scale
         return insetBy(dx: (width - newWidth) / 2, dy: (height - newHeight) / 2)
+    }
+    var center: CGPoint {
+        return CGPoint(x: midX, y: midY)
     }
 }
 

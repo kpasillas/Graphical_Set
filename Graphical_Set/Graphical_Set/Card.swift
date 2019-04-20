@@ -37,7 +37,7 @@ struct Card: CustomStringConvertible
         case two
         case three
         
-        static var all = [Number.one, .two, .three]
+//        static var all = [Number.one, .two, .three]
         
         var description: String { return String(rawValue) }
     }
