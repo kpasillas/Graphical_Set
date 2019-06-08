@@ -12,13 +12,46 @@ import UIKit
 class CardView: UIView {
 
     @IBInspectable
-    var shapeSymbol: String = "Diamond" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+//    var shapeSymbol: String = "Diamond" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var shapeSymbol = String() { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
-    var shapeNumber: Int = 1 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var shapeNumber = Int() { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
-    var shapeColor: UIColor = UIColor.green { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var shapeColor = UIColor() { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
-    var shapeShading: String = "Striped" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var shapeShading = String() { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    
+    // #1
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
+    }
+    
+    // #2
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    // #3
+    public convenience init(shapeSymbol: String, shapeNumber: Int, shapeColor: UIColor, shapeShading: String) {
+//        self.init(frame: shapeFrame)
+        self.init()
+        self.shapeSymbol = shapeSymbol
+        self.shapeNumber = shapeNumber
+        self.shapeColor = shapeColor
+        self.shapeShading = shapeShading
+//        print("In CardView -> init")
+    }
+    
+    private func setupView() {
+//        translatesAutoresizingMaskIntoConstraints = false
+        
+        self.isOpaque = false
+        self.contentMode = .redraw
+        
+        // Create, add and layout the children views ..
+    }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         setNeedsDisplay()
@@ -27,8 +60,7 @@ class CardView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        
+
     }
     
     private func drawCard() {

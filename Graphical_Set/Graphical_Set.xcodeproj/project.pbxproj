@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86041719228E47A900E69446 /* CardsLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86041718228E47A900E69446 /* CardsLayoutView.swift */; };
 		8688D022225A642B0077E113 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8688D021225A642B0077E113 /* CardView.swift */; };
 		86B9E3B4226B9E3000A41DA1 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9E3B3226B9E3000A41DA1 /* Grid.swift */; };
 		86CB22AE2259674C00F52C78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB22AD2259674C00F52C78 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86041718228E47A900E69446 /* CardsLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLayoutView.swift; sourceTree = "<group>"; };
 		8688D021225A642B0077E113 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		86B9E3B3226B9E3000A41DA1 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		86CB22AA2259674C00F52C78 /* Graphical_Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphical_Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,14 +64,15 @@
 		86CB22AC2259674C00F52C78 /* Graphical_Set */ = {
 			isa = PBXGroup;
 			children = (
+				86041718228E47A900E69446 /* CardsLayoutView.swift */,
 				86B9E3B3226B9E3000A41DA1 /* Grid.swift */,
 				8688D021225A642B0077E113 /* CardView.swift */,
 				86CB22C0225967FF00F52C78 /* Card.swift */,
 				86CB22C22259693300F52C78 /* Set.swift */,
-				86CB22BF225967C100F52C78 /* Supporting Files */,
 				86CB22AF2259674C00F52C78 /* ViewController.swift */,
 				86CB22B12259674C00F52C78 /* Main.storyboard */,
 				86CB22B92259674E00F52C78 /* Info.plist */,
+				86CB22BF225967C100F52C78 /* Supporting Files */,
 			);
 			path = Graphical_Set;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				86CB22C1225967FF00F52C78 /* Card.swift in Sources */,
 				86CB22AE2259674C00F52C78 /* AppDelegate.swift in Sources */,
 				8688D022225A642B0077E113 /* CardView.swift in Sources */,
+				86041719228E47A900E69446 /* CardsLayoutView.swift in Sources */,
 				86B9E3B4226B9E3000A41DA1 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

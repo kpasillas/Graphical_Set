@@ -14,11 +14,11 @@ struct Card: CustomStringConvertible
     
     let shape: Shape, number: Number, shading: Shading, color: Color
     
-    enum Shape: CaseIterable, CustomStringConvertible {
+    enum Shape: Character, CaseIterable, CustomStringConvertible {
         
-        case diamond
-        case squiggle
-        case oval
+        case diamond = "▲"
+        case squiggle = "■"
+        case oval = "●"
         
 //        static var all = [Symbol.triangle, .circle, .square]
         
