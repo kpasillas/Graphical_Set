@@ -22,6 +22,7 @@ class CardsLayoutView: UIView {
         
         for index in cards.indices {
             cards[index].frame = cardGrid[index]!.inset(by: cardGrid.CardInsetSize)
+//            cards[index].borderColorValue = UIColor.blue
             addSubview(cards[index])
         }
         
@@ -30,9 +31,19 @@ class CardsLayoutView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
      
-//        print("In CardsLayoutView -> layoutSubviews")
+        removeAll()
 
         configureCardArray(cardArray)
+        
+    }
+    
+    private func removeAll() {
+        
+        for view in subviews {
+            view.removeFromSuperview()
+        }
+        
+//        print("In CardsLayoutView -> removeAll")
         
     }
 
@@ -45,6 +56,19 @@ class CardsLayoutView: UIView {
     */
 
 }
+
+//extension CardsLayoutView {
+//    private struct SizeRatio {
+//        static let borderWidthToBoundsHeight: CGFloat = 0.005
+//        static let cornerRadiusToBoundsHeight: CGFloat = 0.06
+//    }
+//    private var borderWidth: CGFloat {
+//        return bounds.size.height * SizeRatio.borderWidthToBoundsHeight
+//    }
+//    private var cornerRadius: CGFloat {
+//        return bounds.size.height * SizeRatio.cornerRadiusToBoundsHeight
+//    }
+//}
 
 extension Grid {
     struct SizeRatio {

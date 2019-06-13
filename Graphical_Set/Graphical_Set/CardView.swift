@@ -20,6 +20,20 @@ class CardView: UIView {
     var shapeColor = UIColor() { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
     var shapeShading = String() { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable
+    var borderColorValue = UIColor() { didSet { setNeedsDisplay() } }
+//    @IBInspectable
+//    var isSelected = false {
+//        didSet {
+//            if isSelected {
+//                self.borderColorValue = UIColor.blue
+//            } else {
+//                self.borderColorValue = UIColor.gray
+//            }
+//
+//            setNeedsDisplay()
+//        }
+//    }
     
     // #1
     public required init?(coder aDecoder: NSCoder) {
@@ -34,13 +48,15 @@ class CardView: UIView {
     }
     
     // #3
-    public convenience init(shapeSymbol: String, shapeNumber: Int, shapeColor: UIColor, shapeShading: String) {
+    public convenience init(shapeSymbol: String, shapeNumber: Int, shapeColor: UIColor, shapeShading: String, borderColorValue: UIColor) {
 //        self.init(frame: shapeFrame)
         self.init()
         self.shapeSymbol = shapeSymbol
         self.shapeNumber = shapeNumber
         self.shapeColor = shapeColor
         self.shapeShading = shapeShading
+        self.borderColorValue = borderColorValue
+        
 //        print("In CardView -> init")
     }
     
@@ -64,12 +80,17 @@ class CardView: UIView {
     }
     
     private func drawCard() {
+        
         let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         roundedRect.addClip()
         UIColor.white.setFill()
+        borderColorValue.setStroke()
+        roundedRect.lineWidth = borderWidth
         roundedRect.fill()
+        roundedRect.stroke()
         
         let midPointsArray = [[], [bounds.center], [bounds.topHalf.center, bounds.bottomHalf.center], [bounds.topThird.center, bounds.middleThird.center, bounds.bottomThird.center]]
+        
         for index in midPointsArray[shapeNumber].indices {
             if let shapePath = getShapePath(symbol: shapeSymbol, center: midPointsArray[shapeNumber][index]) {
                 shapePath.lineWidth = shapeStrokeWidth
@@ -84,6 +105,7 @@ class CardView: UIView {
                 context?.restoreGState()
             }
         }
+        
     }
     
     private func drawShapeShading(shading: String, color: UIColor) {
@@ -167,11 +189,15 @@ extension CardView {
         static let squiggleEndWidthOffsetRatio: CGFloat = 0.14
         static let squiggleCenterOffsetRatio: CGFloat = 0.03
         static let cornerRadiusToBoundsHeight: CGFloat = 0.06
+        static let borderWidthToBoundsHeight: CGFloat = 0.03
         static let stripeSpacingRatio: CGFloat = 0.1
         static let stripeWidthRatio: CGFloat = 0.01
     }
     private var cornerRadius: CGFloat {
         return bounds.size.height * SizeRatio.cornerRadiusToBoundsHeight
+    }
+    private var borderWidth: CGFloat {
+        return bounds.size.height * SizeRatio.borderWidthToBoundsHeight
     }
     private var shapeStrokeWidth: CGFloat {
         return bounds.size.width * SizeRatio.shapeStrokeWidthRatio
