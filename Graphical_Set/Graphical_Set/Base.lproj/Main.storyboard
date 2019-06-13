@@ -35,7 +35,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <state key="normal" title=" Deal "/>
                                                 <connections>
-                                                    <action selector="dealCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AtY-A7-mz2"/>
+                                                    <action selector="dealCardsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HMo-0e-gJp"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUo-n2-viR">
@@ -56,6 +56,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DMo-UP-a3K" secondAttribute="trailing" constant="16" id="Uwh-UD-n4p"/>
                             <constraint firstItem="DMo-UP-a3K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="V8o-tX-Bcz"/>
@@ -65,6 +66,9 @@
                             <constraint firstItem="OBH-mS-fSd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wTa-p8-kgl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Wut-wL-hgH" appends="YES" id="Myu-Ic-b9d"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dealButton" destination="44g-8j-sge" id="vNR-44-g6J"/>
@@ -74,6 +78,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="Wut-wL-hgH">
+                    <connections>
+                        <action selector="dealCardsSwipe:" destination="BYZ-38-t0r" id="4Lg-Ls-eUD"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="26.600985221674879"/>
         </scene>

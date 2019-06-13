@@ -18,20 +18,18 @@ class ViewController: UIViewController {
 //        }
 //    }
 
-    @IBOutlet private var setCardButtons: [UIButton]! {
-        didSet {
-            for index in setCardButtons.indices {
-                setCardButtons[index].layer.borderWidth = 3.0
-                setCardButtons[index].layer.cornerRadius = 8.0
-                setCardButtons[index].layer.borderColor = UIColor.darkGray.cgColor
-                setCardButtons[index].setAttributedTitle(NSAttributedString(string: ""), for: .disabled)
-            }
-        }
-    }
+//    @IBOutlet private var setCardButtons: [UIButton]! {
+//        didSet {
+//            for index in setCardButtons.indices {
+//                setCardButtons[index].layer.borderWidth = 3.0
+//                setCardButtons[index].layer.cornerRadius = 8.0
+//                setCardButtons[index].layer.borderColor = UIColor.darkGray.cgColor
+//                setCardButtons[index].setAttributedTitle(NSAttributedString(string: ""), for: .disabled)
+//            }
+//        }
+//    }
     
-
     @IBOutlet weak var layoutView: CardsLayoutView!
-    
     
     @IBOutlet weak var scoreLabel: UILabel! {
         didSet {
@@ -46,7 +44,7 @@ class ViewController: UIViewController {
             newGameButton.layer.borderColor = UIColor.darkGray.cgColor
             newGameButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             newGameButton.setTitleColor(#colorLiteral(red: 0.06505490094, green: 0.5875003338, blue: 0.9998186231, alpha: 1), for: .normal)
-//            newGameButton.sizeToFit()
+            newGameButton.sizeToFit()
         }
     }
 
@@ -65,25 +63,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        resetDeckOfCards()
-//        updateViewFromModel()
+//        resetDeckOfCards()
+        updateViewFromModel()
         
     }
 
-    @IBAction private func touchSetCard(_ sender: UIButton) {
-        if let cardNumber = setCardButtons.index(of: sender), cardNumber < game.dealtCards.count {
-            game.selectCard(at: cardNumber)
-            updateViewFromModel()
-        }
-    }
+//    @IBAction private func touchSetCard(_ sender: UIButton) {
+//        if let cardNumber = setCardButtons.index(of: sender), cardNumber < game.dealtCards.count {
+//            game.selectCard(at: cardNumber)
+//            updateViewFromModel()
+//        }
+//    }
 
     @IBAction private func startNewGame(_ sender: UIButton) {
         game = Set()
 //        resetDeckOfCards()
         updateViewFromModel()
     }
-
-    @IBAction func dealCards(_ sender: UIButton) {
+ 
+    @IBAction func dealCardsButton(_ sender: UIButton) {
+        dealCards()
+    }
+    
+    @IBAction func dealCardsSwipe(_ sender: UISwipeGestureRecognizer) {
+        dealCards()
+    }
+    
+    private func dealCards() {
         game.dealThreeCards()
         updateViewFromModel()
     }
@@ -108,7 +114,7 @@ class ViewController: UIViewController {
 //        }
         
         layoutView.cardArray = convertCardToCardView(game.dealtCards)
-//        updateDealLabel()
+        updateDealLabel()
         updateScoreLabel()
     }
     
@@ -170,11 +176,9 @@ class ViewController: UIViewController {
         return color
     }
 
-    private func resetDeckOfCards() {
-        
-        layoutView.cardArray = convertCardToCardView(game.dealtCards)
-        
-    }
+//    private func resetDeckOfCards() {
+//        layoutView.cardArray = convertCardToCardView(game.dealtCards)
+//    }
 
 //    private func updateSetButtonBorder(_ button: UIButton) {
 //        if button.isSelected {                                                          // test if button has been selected
@@ -190,9 +194,9 @@ class ViewController: UIViewController {
 //        }
 //    }
 
-//    private func updateDealLabel() {
-//        dealButton.isEnabled = !(game.originalDeckOfCards.isEmpty || (game.dealtCards.count >= setCardButtons.count && !game.isSet))
-//    }
+    private func updateDealLabel() {
+        dealButton.isEnabled = !game.originalDeckOfCards.isEmpty
+    }
 
     private func updateScoreLabel() {
         let scoreAttributes: [NSAttributedString.Key:Any] = [

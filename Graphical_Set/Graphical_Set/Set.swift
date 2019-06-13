@@ -32,6 +32,11 @@ struct Set
     
     var isSet: Bool {
         get {
+//            if selectedCardsIndices.count == 3 {
+//                return true
+//            } else {
+//                return false
+//            }
             return testIfSet(testEnums)
         }
     }
@@ -40,7 +45,7 @@ struct Set
         for _ in 1...12 {
             dealtCards += [dealCard()]
         }
-//
+
 //        for _ in 0..<57 {
 //            _ = originalDeckOfCards.remove(at: originalDeckOfCards.count.arc4random)
 //        }
