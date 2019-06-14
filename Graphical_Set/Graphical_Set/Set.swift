@@ -97,6 +97,13 @@ struct Set
         }
     }
     
+    mutating func shuffleDealtCards() {
+        for index in dealtCards.indices {
+            let card = dealtCards.remove(at: index)
+            dealtCards.insert(card, at: dealtCards.count)
+        }
+    }
+    
     func testIfSet(_ aClosure: (Card, Card, Card) -> Bool) -> Bool {
         return (selectedCardsIndices.count == 3 && aClosure(dealtCards[selectedCardsIndices[0]]!, dealtCards[selectedCardsIndices[1]]!, dealtCards[selectedCardsIndices[2]]!))
     }

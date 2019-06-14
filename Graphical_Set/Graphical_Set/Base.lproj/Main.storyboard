@@ -68,6 +68,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Wut-wL-hgH" appends="YES" id="Myu-Ic-b9d"/>
+                            <outletCollection property="gestureRecognizers" destination="8Nb-Eg-7HP" appends="YES" id="N7U-Yw-TGa"/>
                         </connections>
                     </view>
                     <connections>
@@ -83,6 +84,11 @@
                         <action selector="dealCardsSwipe:" destination="BYZ-38-t0r" id="4Lg-Ls-eUD"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <rotationGestureRecognizer rotation="1" id="8Nb-Eg-7HP">
+                    <connections>
+                        <action selector="shuffleCardsRotate:" destination="BYZ-38-t0r" id="5UF-fL-nu0"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="26.600985221674879"/>
         </scene>

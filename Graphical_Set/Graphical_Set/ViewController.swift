@@ -89,6 +89,11 @@ class ViewController: UIViewController {
         dealCards()
     }
     
+    @IBAction func shuffleCardsRotate(_ sender: UIRotationGestureRecognizer) {
+        game.shuffleDealtCards()
+        updateViewFromModel()
+    }
+    
     private func dealCards() {
         game.dealThreeCards()
         updateViewFromModel()
