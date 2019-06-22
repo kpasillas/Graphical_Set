@@ -189,7 +189,7 @@ extension CardView {
         static let squiggleEndWidthOffsetRatio: CGFloat = 0.14
         static let squiggleCenterOffsetRatio: CGFloat = 0.03
         static let cornerRadiusToBoundsHeight: CGFloat = 0.06
-        static let borderWidthToBoundsHeight: CGFloat = 0.03
+        static let borderWidthToBoundsHeight: CGFloat = 0.04
         static let stripeSpacingRatio: CGFloat = 0.1
         static let stripeWidthRatio: CGFloat = 0.01
     }

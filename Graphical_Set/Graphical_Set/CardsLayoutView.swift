@@ -16,6 +16,7 @@ class CardsLayoutView: UIView {
     private lazy var cardGrid = Grid(layout: .aspectRatio(5/8), frame: CGRect.zero)
     
     private func configureCardArray(_ cards: [CardView]) {
+//        print("In configureCardArray")
         
         cardGrid.frame = self.bounds
         cardGrid.cellCount = cards.count
@@ -31,6 +32,7 @@ class CardsLayoutView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
      
+//        print("In layoutSubviews")
         removeAll()
 
         configureCardArray(cardArray)

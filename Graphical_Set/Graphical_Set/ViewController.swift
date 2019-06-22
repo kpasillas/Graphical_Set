@@ -37,32 +37,37 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet private var newGameButton: UIButton! {
-        didSet {
-            newGameButton.layer.borderWidth = 3.0
-            newGameButton.layer.cornerRadius = 8.0
-            newGameButton.layer.borderColor = UIColor.darkGray.cgColor
-            newGameButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            newGameButton.setTitleColor(#colorLiteral(red: 0.06505490094, green: 0.5875003338, blue: 0.9998186231, alpha: 1), for: .normal)
-            newGameButton.sizeToFit()
-        }
-    }
+    @IBOutlet weak var newGameButtom: CustomSetButtom!
+    
+    @IBOutlet weak var dealButton: CustomSetButtom!
+    
+    
+//    @IBOutlet private var newGameButton: UIButton! {
+//        didSet {
+//            newGameButton.layer.borderWidth = 3.0
+//            newGameButton.layer.cornerRadius = 8.0
+//            newGameButton.layer.borderColor = UIColor.darkGray.cgColor
+//            newGameButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//            newGameButton.setTitleColor(#colorLiteral(red: 0.06505490094, green: 0.5875003338, blue: 0.9998186231, alpha: 1), for: .normal)
+//            newGameButton.sizeToFit()
+//        }
+//    }
 
-    @IBOutlet private var dealButton: UIButton! {
-        didSet {
-            dealButton.layer.borderWidth = 3.0
-            dealButton.layer.cornerRadius = 8.0
-            dealButton.layer.borderColor = UIColor.darkGray.cgColor
-            dealButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            dealButton.setTitleColor(#colorLiteral(red: 0.06505490094, green: 0.5875003338, blue: 0.9998186231, alpha: 1), for: .normal)
-            dealButton.setTitleColor(UIColor.lightGray, for: .disabled)
-            dealButton.sizeToFit()
-        }
-    }
+//    @IBOutlet private var dealButton: UIButton! {
+//        didSet {
+//            dealButton.layer.borderWidth = 3.0
+//            dealButton.layer.cornerRadius = 8.0
+//            dealButton.layer.borderColor = UIColor.darkGray.cgColor
+//            dealButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//            dealButton.setTitleColor(#colorLiteral(red: 0.06505490094, green: 0.5875003338, blue: 0.9998186231, alpha: 1), for: .normal)
+//            dealButton.setTitleColor(UIColor.lightGray, for: .disabled)
+//            dealButton.sizeToFit()
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        print("In viewDidLoad")
 //        resetDeckOfCards()
         updateViewFromModel()
         
@@ -75,15 +80,25 @@ class ViewController: UIViewController {
 //        }
 //    }
 
-    @IBAction private func startNewGame(_ sender: UIButton) {
+    @IBAction func startNewGame(_ sender: CustomSetButtom) {
+//        print("In startNewGame")
         game = Set()
-//        resetDeckOfCards()
         updateViewFromModel()
     }
- 
-    @IBAction func dealCardsButton(_ sender: UIButton) {
+    
+    @IBAction func dealCardsButton(_ sender: CustomSetButtom) {
         dealCards()
     }
+    
+//    @IBAction private func startNewGame(_ sender: UIButton) {
+//        game = Set()
+////        resetDeckOfCards()
+//        updateViewFromModel()
+//    }
+ 
+//    @IBAction func dealCardsButton(_ sender: UIButton) {
+//        dealCards()
+//    }
     
     @IBAction func dealCardsSwipe(_ sender: UISwipeGestureRecognizer) {
         dealCards()
@@ -117,6 +132,7 @@ class ViewController: UIViewController {
 //            }
 //            updateSetButtonBorder(button)
 //        }
+//        print("In updateViewFromModel")
         
         layoutView.cardArray = convertCardToCardView(game.dealtCards)
         updateDealLabel()
@@ -167,15 +183,15 @@ class ViewController: UIViewController {
         if game.selectedCardsIndices.contains(index) {
             if game.selectedCardsIndices.count == 3 {
                 if game.isSet {
-                    color = UIColor.green
+                    color = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
                 } else {
-                    color = UIColor.red
+                    color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
                 }
             } else {
-                color = UIColor.blue
+                color = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             }
         } else {
-            color = UIColor.gray
+            color = UIColor.darkGray
         }
         
         return color
@@ -206,7 +222,7 @@ class ViewController: UIViewController {
     private func updateScoreLabel() {
         let scoreAttributes: [NSAttributedString.Key:Any] = [
             .strokeWidth : 5.0,
-            .strokeColor : #colorLiteral(red: 0.06505490094, green: 0.5875003338, blue: 0.9998186231, alpha: 1)
+            .strokeColor : #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         ]
         let attributedString = NSAttributedString(string: "Score: \(game.score)", attributes: scoreAttributes)
         scoreLabel.attributedText = attributedString

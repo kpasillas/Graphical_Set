@@ -18,52 +18,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OBH-mS-fSd">
-                                <rect key="frame" x="50" y="686" width="275" height="92"/>
+                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DMo-UP-a3K" customClass="CardsLayoutView" customModule="Graphical_Set" customModuleProvider="target">
+                                <rect key="frame" x="16" y="44" width="343" height="626"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KgE-O1-AHq">
+                                <rect key="frame" x="67" y="686" width="241" height="92"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJT-IZ-Kk0">
-                                        <rect key="frame" x="83.666666666666657" y="0.0" width="107.66666666666666" height="36"/>
+                                        <rect key="frame" x="66.666666666666657" y="0.0" width="107.66666666666666" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="aOa-jv-dC3">
-                                        <rect key="frame" x="0.0" y="44" width="275" height="48"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="3uP-96-Gvy">
+                                        <rect key="frame" x="0.0" y="44" width="241" height="48"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44g-8j-sge">
-                                                <rect key="frame" x="0.0" y="0.0" width="74" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                                <state key="normal" title=" Deal "/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHw-6g-vdL" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="Deal"/>
                                                 <connections>
-                                                    <action selector="dealCardsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HMo-0e-gJp"/>
+                                                    <action selector="dealCardsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qfs-v8-ygv"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUo-n2-viR">
-                                                <rect key="frame" x="114" y="0.0" width="161" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                                <state key="normal" title=" New Game "/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7i-dc-tBB" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
+                                                <rect key="frame" x="98" y="0.0" width="143" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="New Game"/>
                                                 <connections>
-                                                    <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XQb-wt-6va"/>
+                                                    <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WrI-0Z-YDz"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DMo-UP-a3K" customClass="CardsLayoutView" customModule="Graphical_Set" customModuleProvider="target">
-                                <rect key="frame" x="16" y="44" width="343" height="626"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KgE-O1-AHq" secondAttribute="bottom" id="EcL-wn-Qzp"/>
+                            <constraint firstItem="KgE-O1-AHq" firstAttribute="top" secondItem="DMo-UP-a3K" secondAttribute="bottom" constant="16" id="RJk-dl-N01"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DMo-UP-a3K" secondAttribute="trailing" constant="16" id="Uwh-UD-n4p"/>
                             <constraint firstItem="DMo-UP-a3K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="V8o-tX-Bcz"/>
+                            <constraint firstItem="KgE-O1-AHq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZPq-ty-lAK"/>
                             <constraint firstItem="DMo-UP-a3K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fc7-Ok-2eu"/>
-                            <constraint firstItem="EJT-IZ-Kk0" firstAttribute="top" secondItem="DMo-UP-a3K" secondAttribute="bottom" constant="16" id="vz2-Bf-YJW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OBH-mS-fSd" secondAttribute="bottom" id="wSq-Sj-NO8"/>
-                            <constraint firstItem="OBH-mS-fSd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wTa-p8-kgl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -72,9 +72,9 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="dealButton" destination="44g-8j-sge" id="vNR-44-g6J"/>
+                        <outlet property="dealButton" destination="dHw-6g-vdL" id="BuO-jr-P6R"/>
                         <outlet property="layoutView" destination="DMo-UP-a3K" id="cTU-nu-zeX"/>
-                        <outlet property="newGameButton" destination="tUo-n2-viR" id="PQZ-5e-5c6"/>
+                        <outlet property="newGameButtom" destination="r7i-dc-tBB" id="Ds3-hQ-311"/>
                         <outlet property="scoreLabel" destination="EJT-IZ-Kk0" id="scK-uv-HME"/>
                     </connections>
                 </viewController>
