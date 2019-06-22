@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,51 +20,73 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DMo-UP-a3K" customClass="CardsLayoutView" customModule="Graphical_Set" customModuleProvider="target">
-                                <rect key="frame" x="16" y="44" width="343" height="626"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="44" width="343" height="584"/>
+                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KgE-O1-AHq">
-                                <rect key="frame" x="67" y="686" width="241" height="92"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gzf-Ub-KPX">
+                                <rect key="frame" x="87.666666666666686" y="636" width="200" height="142"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJT-IZ-Kk0">
-                                        <rect key="frame" x="66.666666666666657" y="0.0" width="107.66666666666666" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJT-IZ-Kk0">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="42"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="200" id="tNo-7h-iah"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="3uP-96-Gvy">
-                                        <rect key="frame" x="0.0" y="44" width="241" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHw-6g-vdL" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="59" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="Deal"/>
-                                                <connections>
-                                                    <action selector="dealCardsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qfs-v8-ygv"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7i-dc-tBB" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
-                                                <rect key="frame" x="98" y="0.0" width="143" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="New Game"/>
-                                                <connections>
-                                                    <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WrI-0Z-YDz"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHw-6g-vdL" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="200" height="42"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="200" id="Sn2-WQ-H0S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Deal"/>
+                                        <connections>
+                                            <action selector="dealCardsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qfs-v8-ygv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7i-dc-tBB" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="100" width="200" height="42"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="200" id="Faw-2W-JaL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="New Game"/>
+                                        <connections>
+                                            <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WrI-0Z-YDz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KgE-O1-AHq" secondAttribute="bottom" id="EcL-wn-Qzp"/>
-                            <constraint firstItem="KgE-O1-AHq" firstAttribute="top" secondItem="DMo-UP-a3K" secondAttribute="bottom" constant="16" id="RJk-dl-N01"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DMo-UP-a3K" secondAttribute="trailing" constant="16" id="Uwh-UD-n4p"/>
-                            <constraint firstItem="DMo-UP-a3K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="V8o-tX-Bcz"/>
-                            <constraint firstItem="KgE-O1-AHq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZPq-ty-lAK"/>
-                            <constraint firstItem="DMo-UP-a3K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fc7-Ok-2eu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gzf-Ub-KPX" secondAttribute="trailing" priority="250" constant="16" id="L1u-Tx-b99">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="gzf-Ub-KPX" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="250" constant="16" id="LqO-mj-ch3">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DMo-UP-a3K" secondAttribute="trailing" constant="16" id="Uwh-UD-n4p">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="DMo-UP-a3K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="V8o-tX-Bcz">
+                                <variation key="heightClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="DMo-UP-a3K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fc7-Ok-2eu">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="gzf-Ub-KPX" firstAttribute="top" secondItem="DMo-UP-a3K" secondAttribute="bottom" constant="8" symbolic="YES" id="qfG-Yi-jdx"/>
+                            <constraint firstItem="gzf-Ub-KPX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tla-Ov-fzy">
+                                <variation key="heightClass=compact" constant="-8"/>
+                            </constraint>
+                            <constraint firstItem="gzf-Ub-KPX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tpD-fr-0Sa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>

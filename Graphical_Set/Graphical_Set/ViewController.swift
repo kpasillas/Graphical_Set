@@ -29,10 +29,15 @@ class ViewController: UIViewController {
 //        }
 //    }
     
-    @IBOutlet weak var layoutView: CardsLayoutView!
+    @IBOutlet weak var layoutView: CardsLayoutView! {
+        didSet {
+            layoutView.backgroundColor = UIColor.clear
+        }
+    }
     
     @IBOutlet weak var scoreLabel: UILabel! {
         didSet {
+            scoreLabel.backgroundColor = UIColor.clear
             updateScoreLabel()
         }
     }
@@ -221,6 +226,7 @@ class ViewController: UIViewController {
 
     private func updateScoreLabel() {
         let scoreAttributes: [NSAttributedString.Key:Any] = [
+            .font : UIFont.systemFont(ofSize: 25.0),
             .strokeWidth : 5.0,
             .strokeColor : #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         ]

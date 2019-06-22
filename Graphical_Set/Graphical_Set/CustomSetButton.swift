@@ -42,7 +42,7 @@ class CustomSetButtom: UIButton {
         backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
 //        setTitleColor(#colorLiteral(red: 0.06505490094, green: 0.5875003338, blue: 0.9998186231, alpha: 1), for: .normal)
-        titleLabel?.font = .systemFont(ofSize: 30.0, weight: .semibold)
+        titleLabel?.font = .systemFont(ofSize: 25.0, weight: .semibold)
         
         setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
         setTitleColor(UIColor.lightGray, for: .disabled)
