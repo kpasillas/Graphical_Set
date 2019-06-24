@@ -35,9 +35,9 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var scoreLabel: UILabel! {
+    @IBOutlet weak var scoreLabel: CustomSetLabel! {
         didSet {
-            scoreLabel.backgroundColor = UIColor.clear
+            //                scoreLabel.backgroundColor = UIColor.clear
             updateScoreLabel()
         }
     }
@@ -225,13 +225,17 @@ class ViewController: UIViewController {
     }
 
     private func updateScoreLabel() {
-        let scoreAttributes: [NSAttributedString.Key:Any] = [
-            .font : UIFont.systemFont(ofSize: 25.0),
-            .strokeWidth : 5.0,
-            .strokeColor : #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        ]
-        let attributedString = NSAttributedString(string: "Score: \(game.score)", attributes: scoreAttributes)
-        scoreLabel.attributedText = attributedString
+//        let scoreAttributes: [NSAttributedString.Key:Any] = [
+//            .font : UIFont.systemFont(ofSize: 25.0),
+//            .strokeWidth : 5.0,
+//            .strokeColor : #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+//        ]
+//        let attributedString = NSAttributedString(string: "Score: \(game.score)", attributes: scoreAttributes)
+//        let attributedString = NSAttributedString(string: "Score: \(game.score)")
+        
+//        print("In updateScoreLabel")
+//        scoreLabel.attributedText = NSAttributedString(string: "Score: \(game.score)")
+        scoreLabel.updateText(string: "Score: \(game.score)")
     }
 
 }

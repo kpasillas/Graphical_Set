@@ -42,8 +42,8 @@ class CustomSetButtom: UIButton {
         backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
 //        setTitleColor(#colorLiteral(red: 0.06505490094, green: 0.5875003338, blue: 0.9998186231, alpha: 1), for: .normal)
-        titleLabel?.font = .systemFont(ofSize: 25.0, weight: .semibold)
         
+        titleLabel?.font = .systemFont(ofSize: fontSize, weight: .semibold)
         setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
         setTitleColor(UIColor.lightGray, for: .disabled)
         sizeToFit()
@@ -62,6 +62,7 @@ extension CustomSetButtom {
         static let borderWidthToBoundsHeightRatio: CGFloat = 0.06
         static let buttonWidthRatio: CGFloat = 0.1
         static let buttonHeightRatio: CGFloat = 0.05
+        static let fontSizeToBoundsHeight: CGFloat = 0.6
     }
 
     private var cornerRadius: CGFloat {
@@ -76,6 +77,9 @@ extension CustomSetButtom {
     }
     private var buttonHeight: CGFloat {
         return bounds.size.height * SizeRatio.buttonHeightRatio
+    }
+    private var fontSize: CGFloat {
+        return bounds.size.height * SizeRatio.fontSizeToBoundsHeight
     }
 }
 

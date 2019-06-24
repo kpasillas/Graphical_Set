@@ -23,39 +23,43 @@
                                 <rect key="frame" x="16" y="44" width="343" height="584"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gzf-Ub-KPX">
-                                <rect key="frame" x="87.666666666666686" y="636" width="200" height="142"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kQc-xf-4bR">
+                                <rect key="frame" x="16" y="636" width="343" height="142"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJT-IZ-Kk0">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="42"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzl-Rc-qNA" customClass="CustomSetLabel" customModule="Graphical_Set" customModuleProvider="target">
+                                        <rect key="frame" x="71.666666666666686" y="0.0" width="200" height="42"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="200" id="tNo-7h-iah"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="200" id="hyY-FW-oJm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHw-6g-vdL" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="200" height="42"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHw-6g-vdL" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
+                                        <rect key="frame" x="71.666666666666686" y="50" width="200" height="42"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="200" id="Sn2-WQ-H0S"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="Deal"/>
+                                        <state key="normal" title="Deal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="dealCardsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qfs-v8-ygv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7i-dc-tBB" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="100" width="200" height="42"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7i-dc-tBB" customClass="CustomSetButtom" customModule="Graphical_Set" customModuleProvider="target">
+                                        <rect key="frame" x="71.666666666666686" y="100" width="200" height="42"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="200" id="Faw-2W-JaL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="New Game"/>
+                                        <state key="normal" title="New Game">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WrI-0Z-YDz"/>
                                         </connections>
@@ -67,10 +71,10 @@
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gzf-Ub-KPX" secondAttribute="trailing" priority="250" constant="16" id="L1u-Tx-b99">
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="kQc-xf-4bR" secondAttribute="trailing" priority="750" constant="16" id="HXU-Y9-dUx">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="gzf-Ub-KPX" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="250" constant="16" id="LqO-mj-ch3">
+                            <constraint firstItem="kQc-xf-4bR" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="750" constant="16" id="LKv-M4-bzi">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DMo-UP-a3K" secondAttribute="trailing" constant="16" id="Uwh-UD-n4p">
@@ -82,11 +86,8 @@
                             <constraint firstItem="DMo-UP-a3K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fc7-Ok-2eu">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="gzf-Ub-KPX" firstAttribute="top" secondItem="DMo-UP-a3K" secondAttribute="bottom" constant="8" symbolic="YES" id="qfG-Yi-jdx"/>
-                            <constraint firstItem="gzf-Ub-KPX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tla-Ov-fzy">
-                                <variation key="heightClass=compact" constant="-8"/>
-                            </constraint>
-                            <constraint firstItem="gzf-Ub-KPX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tpD-fr-0Sa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kQc-xf-4bR" secondAttribute="bottom" id="gIy-NJ-oee"/>
+                            <constraint firstItem="kQc-xf-4bR" firstAttribute="top" secondItem="DMo-UP-a3K" secondAttribute="bottom" constant="8" symbolic="YES" id="jca-eu-yjC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -98,7 +99,7 @@
                         <outlet property="dealButton" destination="dHw-6g-vdL" id="BuO-jr-P6R"/>
                         <outlet property="layoutView" destination="DMo-UP-a3K" id="cTU-nu-zeX"/>
                         <outlet property="newGameButtom" destination="r7i-dc-tBB" id="Ds3-hQ-311"/>
-                        <outlet property="scoreLabel" destination="EJT-IZ-Kk0" id="scK-uv-HME"/>
+                        <outlet property="scoreLabel" destination="rzl-Rc-qNA" id="xP6-OF-XFa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

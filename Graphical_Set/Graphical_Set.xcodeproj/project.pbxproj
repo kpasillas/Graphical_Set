@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		86041719228E47A900E69446 /* CardsLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86041718228E47A900E69446 /* CardsLayoutView.swift */; };
+		862A06A322BF12D400049CFE /* CustomSetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862A06A222BF12D400049CFE /* CustomSetLabel.swift */; };
 		8688D022225A642B0077E113 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8688D021225A642B0077E113 /* CardView.swift */; };
 		86B74D7622B5D6C400F36A01 /* CustomSetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B74D7522B5D6C400F36A01 /* CustomSetButton.swift */; };
 		86B9E3B4226B9E3000A41DA1 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9E3B3226B9E3000A41DA1 /* Grid.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		86041718228E47A900E69446 /* CardsLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLayoutView.swift; sourceTree = "<group>"; };
+		862A06A222BF12D400049CFE /* CustomSetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSetLabel.swift; sourceTree = "<group>"; };
 		8688D021225A642B0077E113 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		86B74D7522B5D6C400F36A01 /* CustomSetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSetButton.swift; sourceTree = "<group>"; };
 		86B9E3B3226B9E3000A41DA1 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		86CB22AC2259674C00F52C78 /* Graphical_Set */ = {
 			isa = PBXGroup;
 			children = (
+				862A06A222BF12D400049CFE /* CustomSetLabel.swift */,
 				86B74D7522B5D6C400F36A01 /* CustomSetButton.swift */,
 				86041718228E47A900E69446 /* CardsLayoutView.swift */,
 				86B9E3B3226B9E3000A41DA1 /* Grid.swift */,
@@ -166,6 +169,7 @@
 				86CB22C1225967FF00F52C78 /* Card.swift in Sources */,
 				86B74D7622B5D6C400F36A01 /* CustomSetButton.swift in Sources */,
 				86CB22AE2259674C00F52C78 /* AppDelegate.swift in Sources */,
+				862A06A322BF12D400049CFE /* CustomSetLabel.swift in Sources */,
 				8688D022225A642B0077E113 /* CardView.swift in Sources */,
 				86041719228E47A900E69446 /* CardsLayoutView.swift in Sources */,
 				86B9E3B4226B9E3000A41DA1 /* Grid.swift in Sources */,
