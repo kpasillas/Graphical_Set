@@ -27,8 +27,9 @@ class CustomSetButtom: UIButton {
     }
     
     private func setupButton() {
-        self.isOpaque = false
-        self.contentMode = .redraw
+//        self.isOpaque = false
+//        self.contentMode = .redraw
+//        self.sizeToFit()
         
         layer.borderWidth = 3.0
         layer.cornerRadius = 8.0
@@ -43,10 +44,19 @@ class CustomSetButtom: UIButton {
         
 //        setTitleColor(#colorLiteral(red: 0.06505490094, green: 0.5875003338, blue: 0.9998186231, alpha: 1), for: .normal)
         
-        titleLabel?.font = .systemFont(ofSize: fontSize, weight: .semibold)
+//        titleLabel?.font = .systemFont(ofSize: fontSize, weight: .semibold)
+        var font = UIFont.preferredFont(forTextStyle: .body).withSize(25.0)
+        font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+        titleLabel?.font = font
         setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
         setTitleColor(UIColor.lightGray, for: .disabled)
         sizeToFit()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setupButton()
+        setNeedsDisplay()
+        setNeedsLayout()
     }
     
 //    override func layoutSubviews() {

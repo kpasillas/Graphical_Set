@@ -30,7 +30,8 @@ class CustomSetLabel: UILabel {
     
     private func setupLabel() {
 //        self.isOpaque = false
-        self.contentMode = .redraw
+//        self.contentMode = .redraw
+//        self.sizeToFit()
 //
 //        layer.borderWidth = 3.0
 //        layer.cornerRadius = 8.0
@@ -54,6 +55,12 @@ class CustomSetLabel: UILabel {
 //        sizeToFit()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        updateText(string: self.text!)
+        setNeedsDisplay()
+        setNeedsLayout()
+    }
+    
     func updateText(string: String) {
         
         var font = UIFont.preferredFont(forTextStyle: .body).withSize(25.0)
@@ -61,7 +68,8 @@ class CustomSetLabel: UILabel {
         
         let labelAttributes: [NSAttributedString.Key:Any] = [
             .font : font,
-            .strokeWidth : 5.0,
+            .foregroundColor : UIColor.white,
+            .strokeWidth : -5.0,
             .strokeColor : #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         ]
         
